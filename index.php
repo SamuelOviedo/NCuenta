@@ -7,13 +7,36 @@ $v2 = $_POST['v2'];
 $p2 = $_POST['p2'];
 $v3 = $_POST['v3'];
 $p3 = $_POST['p3'];
+$validar = 0;
 
+if ($cuenta == "") {
+    $validar = 1;
+}
 
-$resultado = str_replace($v1, $p1, $cuenta);
-$NuevoResultado = str_replace($v2, $p2, $resultado);
-$NuevoResultado2 = str_replace($v3, $p3, $NuevoResultado);
+if (isset($_POST['BtnNC'])) {
+    $op = 1;
+} elseif (isset($_POST['BtnNAlc'])) {
+    $op = 2;
+}
 
-$alreves = strrev($cuenta);
+switch ($op) {
+
+    case 1:
+        $resultado = str_replace($v1, $p1, $cuenta);
+        $NuevoResultado = str_replace($v2, $p2, $resultado);
+        $NuevoResultado2 = str_replace($v3, $p3, $NuevoResultado);
+        break;
+
+    case 2:
+        $alreves = strrev($cuenta);
+        $resultado = str_replace($v1, $p1, $alreves);
+        $NuevoResultado = str_replace($v2, $p2, $resultado);
+        $NuevoResultado2 = str_replace($v3, $p3, $NuevoResultado);
+        break;
+
+    default:
+        break;
+}
 
 ?>
 
@@ -70,7 +93,7 @@ $alreves = strrev($cuenta);
                 </div>
             </div>
             <div class="row">
-            <div class="col">
+                <div class="col">
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Valor:</span>
                         <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="v3" id="v3">
@@ -83,24 +106,29 @@ $alreves = strrev($cuenta);
                     </div>
                 </div>
             </div>
+
             <div class="mt-5 mx-auto" style="width: 200px;">
 
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="submit" class="btn btn-dark">Generar N. Cuenta</button>
-                    <button type="submit" class="btn btn-primary">Al reves</button>
+                    <button type="submit" class="btn btn-dark" name="BtnNC" id="BtnNC">Generar N. Cuenta</button>
+                    <button type="submit" class="btn btn-primary" name="BtnNAlc" id="BtnNAlc">Al reves</button>
                 </div>
+                <?php
+                if ($validar != 0) {
+                    echo "
+            <div class='mt-5 badge bg-danger text-wrap' style='width: 10rem;'>
+                Ingrese un número de cuenta
+            </div>
+            ";
+                }
+                ?>
             </div>
         </form>
 
-        <div class="row mt-5">
+        <div class="row mt-4">
             <div class="col">
                 <p id="res"><?php echo $NuevoResultado2 ?></p>
                 <button type="button" class="btn btn-dark" onclick="copiarAlPortapapeles('res')">Copiar</button>
-
-            </div>
-            <div class="col">
-                <p id="alr"><?php echo $alreves ?></p>
-                <button type="button" class="btn btn-dark" onclick="copiarAlPortapapeles('alr')">Copiar</button>
 
             </div>
         </div>
