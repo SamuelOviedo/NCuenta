@@ -8,6 +8,7 @@ $p2 = $_POST['p2'];
 $v3 = $_POST['v3'];
 $p3 = $_POST['p3'];
 $validar = 0;
+$copy = 0;
 
 if ($cuenta == "") {
     $validar = 1;
@@ -127,14 +128,14 @@ switch ($op) {
 
         <div class="row mt-4">
             <div class="col">
-                <p id="res"><?php echo $NuevoResultado2 ?></p>
+                <p id="res">
+                    <?php echo $NuevoResultado2 ?>
+                </p>
                 <button type="button" class="btn btn-dark" onclick="copiarAlPortapapeles('res')">Copiar</button>
-
             </div>
         </div>
-
     </div>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script>
         function copiarAlPortapapeles(id_elemento) {
@@ -144,6 +145,14 @@ switch ($op) {
             aux.select();
             document.execCommand("copy");
             document.body.removeChild(aux);
+
+            <?php
+            if ($NuevoResultado2 != "") {
+                echo "
+            swal('Copiado!', 'Número de cuenta copiado al portapapeles!', 'success');
+            ";
+            }
+            ?>
         }
     </script>
 </body>
