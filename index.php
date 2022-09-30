@@ -58,75 +58,81 @@ switch ($op) {
         </div>
     </nav>
 
-    <div class="container-fluid text-center">
-        <form action="index.php" method="post">
-            <div class="row">
-                <div class="input-group mb-3 p-4">
-                    <span class="input-group-text">#</span>
-                    <div class="form-floating">
-                        <input type="number" class="form-control" name="NCuenta" id="NCuenta">
-                        <label for="floatingInputGroup1">Número de cuenta</label>
+    <div class="container px-4 py-5">
+        <form action="index.php" method="post" class="row g-3">
+            <div class="container text-center mt-5">
+                <div class="row mt-5">
+                    <div class="input-group mb-3 p-4">
+                        <span class="input-group-text">#</span>
+                        <div class="form-floating">
+                            <input type="number" class="form-control" name="NCuenta" id="NCuenta">
+                            <label for="floatingInputGroup1">Número de cuenta</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Valor:</span>
+                            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="v1" id="v1">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Por:</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="p1" id="p1">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Valor:</span>
+                            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="v2" id="v2">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Por:</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="p2" id="p2">
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Valor:</span>
-                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="v1" id="v1">
+                <div class="row mt-5">
+                    <div class="col"></div>
+                    <div class="col">
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Valor:</span>
+                            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="v3" id="v3">
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Por:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="p1" id="p1">
+                    <div class="col">
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Por:</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="p3" id="p3">
+                        </div>
                     </div>
+                    <div class="col"></div>
                 </div>
-                <div class="col">
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Valor:</span>
-                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="v2" id="v2">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Por:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="p2" id="p2">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Valor:</span>
-                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="v3" id="v3">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Por:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="p3" id="p3">
-                    </div>
-                </div>
-            </div>
 
-            <div class="mt-5 mx-auto" style="width: 200px;">
+                <div class="mt-5 mx-auto" style="width: 200px;">
 
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="submit" class="btn btn-dark" name="BtnNC" id="BtnNC">Generar N. Cuenta</button>
-                    <button type="submit" class="btn btn-primary" name="BtnNAlc" id="BtnNAlc">Al reves</button>
-                </div>
-                <?php
-                if ($validar != 0) {
-                    echo "
+                    <div class="btn-group mt-5" role="group" aria-label="Basic example">
+                        <button type="submit" class="btn btn-dark" name="BtnNC" id="BtnNC">Generar N. Cuenta</button>
+                        <button type="submit" class="btn btn-primary" name="BtnNAlc" id="BtnNAlc">Al reves</button>
+                    </div>
+                    <?php
+                    if ($validar != 0) {
+                        echo "
+                    <center>
             <div class='mt-5 badge bg-danger text-wrap' style='width: 10rem;'>
                 Ingrese un número de cuenta
             </div>
+            </center>
             ";
-                }
-                ?>
+                    }
+                    ?>
+                </div>
             </div>
         </form>
 
-        <div class="row mt-4">
+        <div class="mt-5 text-center">
             <div class="col">
                 <p id="res">
                     <?php echo $NuevoResultado2 ?>
